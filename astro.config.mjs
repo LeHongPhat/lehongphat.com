@@ -15,10 +15,10 @@ export default defineConfig({
       cmsConfig: {
         backend: {
           name: 'github',
-          repo: 'LeHongPhat/lehongphat.com', // THAY TÊN GITHUB CỦA BẠN VÀO ĐÂY
+          repo: 'LeHongPhat/lehongphat.com',
           branch: 'main',
-          base_url: 'https://lehongphat.com',
-          auth_endpoint: '/api/auth',
+          base_url: 'https://decap-proxy-lehongphat.lehongphat2009.workers.dev', // Đã sửa thành URL Worker
+          auth_endpoint: '/auth', // Đã sửa thành endpoint của proxy
         },
         media_folder: 'public/images',
         public_folder: '/images',
@@ -40,11 +40,10 @@ export default defineConfig({
           },
         ],
       },
-      injectOAuthRoute: true,
-      getEnvObjectFromRequestContext: ({ locals }) => locals.runtime.env,
+      // Đã xóa 2 dòng injectOAuthRoute và getEnvObjectFromRequestContext
     }),
   ],
-  adapter: cloudflare(), // Thêm adapter vào đây
+  adapter: cloudflare(),
   fonts: [
     {
       provider: fontProviders.local(),
